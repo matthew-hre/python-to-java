@@ -135,22 +135,22 @@ package mypackage;
 
 public class MyClass {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
 
-	}
+    }
 
     private void run() {
 
     }
 
-	private int getSomeInput() {
+    private int getSomeInput() {
 
-	}
+    }
 
-	private int doSomeMath(int num1, int num2) {
+    private int doSomeMath(int num1, int num2) {
 
-	}
+    }
 
 }
 ```
