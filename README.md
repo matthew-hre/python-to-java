@@ -10,7 +10,7 @@ Welp, we did it. We managed to get through the hellscape that was 1501 Python. W
 
 In order to actually "Do a Java", you're gonna need a JRE, or a Java Runtime Environment. This is a little home in your computer where Java is gonna live and do all its work.
 
-1. Go [here](https://www.oracle.com/java/technologies/downloads/#jdk19-windows) and download the `x64 Installer`, unless you're smarter than me and your PC needs a different one. You'll know.
+1. Go [here](https://www.oracle.com/java/technologies/downloads/#jdk19-windows) and download the latest `x64 Installer`, unless you're smarter than me and your PC needs a different one. You'll know.
 
 2. If it says `Do you want to reinstall this?` like it did to me because I blew past the instructions way too fast and forgot to write this document, just reinstall it.
 
@@ -46,7 +46,7 @@ _anyways here's how you install it:_
 
 ## You are Sisyphus, and Java is your boulder
 
-Let's rock and roll. First, we'll `Create a new Java Project`, and name it something really cool like "LearningToDoAJava". We're gonna write this in **PascalCase**, since that's the standard for Java project names. It **should**, by default, select `JavaSE-19` as your `Execution Environment JRE`, and that's good, we want that. If there's something weird in that box, then Google it idk Java's scary. Uncheck the `Create module-info.java` box, because I really do not feel like explaining Java modules while sick. Finish.
+Let's rock and roll. First, we'll `Create a new Java Project`, and name it something really cool like "LearningToDoAJava". We're gonna write this in **PascalCase**, since that's the standard for Java project names. It **should**, by default, select `JavaSE-[LATEST_VERSION]` as your `Execution Environment JRE`, and that's good, we want that. If there's something weird in that box, then Google it idk Java's scary. Uncheck the `Create module-info.java` box, because I really do not feel like explaining Java modules while sick. Finish.
 
 There's gonna be a lot of things on the screen, and it's gonna be really scary, but take a deep breath and we'll work through this. On the right is the `Outline`, which we do not care about. There's a little horizontal rectangle near the top right of that, click that and it'll disappear. At the bottom is the `Problems` box, which will be full very soon, so we can keep that open. Finally, on the left, we got the `Package Explorer`, which is just the VSCode sidebar with extra steps, so don't worry.
 
@@ -54,7 +54,7 @@ Let's write some code already! In your explorer, right click on `LearningToDoAJa
 
 ```
 LearningToDoAJava
-    JRE System Library [JavaSE-19]
+    JRE System Library [JavaSE-[LATEST_VERSION]]]
     src
         mypackage
 ```
