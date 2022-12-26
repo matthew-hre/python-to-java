@@ -6,15 +6,19 @@ Welp, we did it. We managed to get through the hellscape that was 1501 Python. W
 
 ## Installing A JRE
 
+### Only do this if you're on a personal computer, as this is already installed on the lab computers.
+
 In order to actually "Do a Java", you're gonna need a JRE, or a Java Runtime Environment. This is a little home in your computer where Java is gonna live and do all its work.
 
 1. Go [here](https://www.oracle.com/java/technologies/downloads/#jdk19-windows) and download the `x64 Installer`, unless you're smarter than me and your PC needs a different one. You'll know.
 
-2. If it says 1Do you want to reinstall this?1 like it did to me because I blew past the instructions way too fast and forgot to write this document, just reinstall it.
+2. If it says `Do you want to reinstall this?` like it did to me because I blew past the instructions way too fast and forgot to write this document, just reinstall it.
 
 3. Hit next and next, then close.
 
 ## Installing The World's Shittiest Editor (on Windows).
+
+### Only do this if you're on a personal computer, as this is already installed on the lab computers.
 
 From what I understand, we're gonna be using Eclipse for 1502, which sucks. There's a whole new "perspective" for debugging, the menus are suuuper bloated with crap you're never gonna touch, there are a bunch of VSCode features that you're gonna miss, it's super memory intensive (runs very slow), the default keybinds all suck, the autocomplete is complete garbage, and worst of all: it's light mode by **default**! Ugh!
 
@@ -22,7 +26,7 @@ _anyways here's how you install it:_
 
 1. Grab your nearest pillow, bury your face in it, and let out a hearty scream. Now we can begin.
 
-2. Head over to [Eclipse's website](https://www.eclipse.org/downloads/) and hit the 1Get Eclipse IDE 2022-121 button. The numbers might be a bit different, but you don't care.
+2. Head over to [Eclipse's website](https://www.eclipse.org/downloads/) and hit the `Get Eclipse IDE 2022-12` button. The numbers might be a bit different, but you don't care.
 
 3. Hit download, then laugh at the "plz donate" window and promptly close it.
 
@@ -42,7 +46,7 @@ _anyways here's how you install it:_
 
 ## You are Sisyphus, and Java is your boulder
 
-Let's rock and roll. First, we'll `Create a new Java Project`, and name it something really cool like "LearningToDoAJava". We're gonna write this in **PascalCase**, since that's the standard for Java project names. It **should**, by default, select `JavaSE-17` as your `Execution Environment JRE`, and that's good, we want that. If there's something weird in that box, then Google it idk Java's scary. Uncheck the `Create module-info.java` box, because I really do not feel like explaining Java modules while sick. Finish.
+Let's rock and roll. First, we'll `Create a new Java Project`, and name it something really cool like "LearningToDoAJava". We're gonna write this in **PascalCase**, since that's the standard for Java project names. It **should**, by default, select `JavaSE-19` as your `Execution Environment JRE`, and that's good, we want that. If there's something weird in that box, then Google it idk Java's scary. Uncheck the `Create module-info.java` box, because I really do not feel like explaining Java modules while sick. Finish.
 
 There's gonna be a lot of things on the screen, and it's gonna be really scary, but take a deep breath and we'll work through this. On the right is the `Outline`, which we do not care about. There's a little horizontal rectangle near the top right of that, click that and it'll disappear. At the bottom is the `Problems` box, which will be full very soon, so we can keep that open. Finally, on the left, we got the `Package Explorer`, which is just the VSCode sidebar with extra steps, so don't worry.
 
@@ -50,12 +54,14 @@ Let's write some code already! In your explorer, right click on `LearningToDoAJa
 
 ```
 LearningToDoAJava
-    JRE System Library [JavaSE-17]
+    JRE System Library [JavaSE-19]
     src
         mypackage
 ```
 
 Yippee! That's what we want. Alright, let's write some code. Right click on your brand-spankin-new package, and add a new `Class`. We'll name it `MyClass` (PascalCase again), and ensure that `public` and `none` are the only things checked under `Modifiers`. Make sure to check that `public static void main(String[] args)`, or you're gonna have to write it in manually. Leave everything else default, and hit Finish.
+
+Note: The class name and file name have to be exactly the same, or your code will not run. Just a heads up.
 
 ```java
 package mypackage;
@@ -82,9 +88,9 @@ Next, we have our `public static void main(String[] args)`. Remember how we'd cr
 
 The `public` tells the world that they're totally allowed to call this method.
 
-The `static` is a little confusing, so just tell yourself "it's for memory management" and move on.
+`static` means that method lives inside of the class, and can be used inside of that class (or outside, if it's public). You don't need to instantiate a new instance of the class just to use it.
 
-The `void` just means this function doesn't return anything! Remember when we used to do `def myfunc() -> None:` in Python? We now call that `None` `Void`, and put it near the start. If we wanted to return a whole number, we'd change it to `int`. A bool? `bool`! It's also no longer optional, so don't forget it!
+The `void` just means this function doesn't return anything! Remember when we used to do `def myfunc() -> None:` in Python? Instead of `None`, we now use `Void` to say we're not returning anything, and put it near the start. If we wanted to return a whole number, we'd change it to `int`. A bool? `boolean`! It's also no longer optional, so don't forget it!
 
 `main` is the name of our method. We like to use **camelCase** for methods, so keep that in mind.
 
@@ -134,11 +140,15 @@ public class MyClass {
 
 	}
 
-	public static int getSomeInput() {
+    private void run() {
+
+    }
+
+	private int getSomeInput() {
 
 	}
 
-	public static int doSomeMath(int num1, int num2) {
+	private int doSomeMath(int num1, int num2) {
 
 	}
 
@@ -149,7 +159,9 @@ That's not too bad! Let's walk through this:
 
 Our `main` was already there, and we didn't really need to change it, which is good.
 
-We need to make sure all our functions are `static`, or our code is gonna get mad at us. Don't worry about it too much yet.
+We've created a `private void run` method. This is going to be where we do all our logic, and we'll call this in `main` later.
+
+All our methods are `private`, since we only want to use them ourselves, and don't need any other code touching them.
 
 `getSomeInput` has been camelCased, as well as we've specified it's gonna return an `int`!
 
@@ -162,7 +174,7 @@ This code is erroring like crazy right now, and it's because Java is mad that we
 Let's work on this `doSomeMath` method a bit. I'm just gonna paste in my Python code right into there, and see what happens...
 
 ```java
-public static int doSomeMath(int num1, int num2) {
+private int doSomeMath(int num1, int num2) {
 ❌   new_num = 0
 ❌   num1 = num1 * num2
 ❌   new_num = num1 + 5
@@ -181,7 +193,7 @@ Syntax error, insert ";" to complete Statement
 You're gonna get a million of these, so get used to it. Remember when I said we need a semicolon at the end of every line that doesn't have a curly bracket? Yeah, we need those. I'll add 'em.
 
 ```java
-public static int doSomeMath(int num1, int num2) {
+private int doSomeMath(int num1, int num2) {
 ❌   new_num = 0
      num1 = num1 * num2
 ❌   new_num = num1 + 5
@@ -196,7 +208,7 @@ It may not look like it, but that's waaaaay better. Take a minute here to find t
 Java is a **Statically Typed Langauge**, which means we need to tell the code what type of data each variable is going to represent **the moment we define the variable**. In this case, we want to tell `new_num` that it's an `int` when we define it, so let's do that!
 
 ```java
-public static int doSomeMath(int num1, int num2) {
+private int doSomeMath(int num1, int num2) {
     int new_num = 0;
     num1 = num1 * num2;
     new_num = num1 + 5;
@@ -213,7 +225,7 @@ Errorless. A thing of beauty, really. We've now told `new_num` that it's an int 
 Let's clean this code up a bit, to make it more Java-like. First, we don't use snake_case anymore, so let's switch these over to camelCase.
 
 ```java
-public static int doSomeMath(int num1, int num2) {
+private int doSomeMath(int num1, int num2) {
     int newNum = 0;
     num1 = num1 * num2;
     newNum = num1 + 5;
@@ -232,7 +244,7 @@ Much better. Let's deal with a couple other things:
 After all that, we should get:
 
 ```java
-public static int doSomeMath(int num1, int num2) {
+private int doSomeMath(int num1, int num2) {
     int newNum = 0;
     num1 *= num2;
     newNum = num1 + 5;
@@ -263,7 +275,7 @@ def get_some_input() -> int:
 Now, let's rebuild this in Java!
 
 ```java
-public static int getSomeInput() {
+private int getSomeInput() {
     Scanner scanner = new Scanner(System.in);
 
     System.out.println("Please give me a whole number!");
@@ -303,7 +315,7 @@ Just puked all over my keyboard. Maybe cause I'm sick, sure, but just look at ho
 Welp, here's the updated code for that:
 
 ```java
-public static int getSomeInput() {
+private int getSomeInput() {
     Scanner scanner = new Scanner(System.in);
 
     System.out.println("Please give me a whole number!");
@@ -317,14 +329,19 @@ public static int getSomeInput() {
 }
 ```
 
-We only changed one line! First, instead of doing `nextInt();`, we're getting the `nextLine();`, which returns a `String`. In order to cast that into an `int`, we need access to the `Integer` class. `Integer` is like `int`'s big brother, and has a bunch of tools inside it that we need access to. `parseInt();` takes a string, and returns an `int`! Watch out though, as there's a reason we use `nextInt();` instead of casting: this can error and crash.
+We only changed one line! First, instead of doing `nextInt();`, we're getting the `nextLine();`, which returns a `String`. In order to cast that into an `int`, we need access to the `Integer` class. `Integer` is like `int`'s big brother, and has a bunch of tools inside it that we need access to. `parseInt();` takes a string, and returns an `int`! There are some issues with both of these techniques that you'll have to deal with later, so just stick with `nextInt()` for now.
 
 ## Jigsaw Falling Into Place
 
-Radiohead reference, sorry. Anyways, let's finish off this code in out `main` method!
+Radiohead reference, sorry. Anyways, let's finish off this code in our `main` and `run` methods!
 
 ```java
 public static void main(String[] args) {
+    MyClass myClass = new MyClass();
+    myClass.run();
+}
+
+private void run() {
     int firstNum = getSomeInput();
     int secondNum = getSomeInput();
 
@@ -334,7 +351,13 @@ public static void main(String[] args) {
 }
 ```
 
-Nothing new here, we knew all this already. Alright, let's hit the big green arrow at the top of the window and run!
+Our `run` method is pretty self explanitory, and looks very similar to our Python code.
+
+Our `main`, on the other hand, is kind of confusing. We're creating a new instance of ourselves? And then calling run? Why are we doing this?
+
+Well, if we were to implement our logic right inside `main`, we'd need to change all of our methods to `static`, as static methods can only call other static methods. This is a terrible habit, and should be avoided until we're more knowlegable about `static` methods. To circumvent this, we create a simple `run` method that holds our logic, and then call it in `main`!
+
+Alright, let's hit the big green arrow at the top of the window and run!
 
 Aaaaaand...
 
