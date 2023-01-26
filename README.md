@@ -194,12 +194,12 @@ You're gonna get a million of these, so get used to it. Remember when I said we 
 
 ```java
 private int doSomeMath(int num1, int num2) {
-❌   new_num = 0
-     num1 = num1 * num2
-❌   new_num = num1 + 5
-     num2 += 1
-     num1 -= 1
-❌   return new_num - num1 + num2
+❌   new_num = 0;
+     num1 = num1 * num2;
+❌   new_num = num1 + 5;
+     num2 += 1;
+     num1 -= 1;
+❌   return new_num - num1 + num2;
 }
 ```
 
